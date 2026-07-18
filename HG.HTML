@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الكلمات الإنجليزية بالصوت</title>
+    <style>
+        /* تصميم الـ CSS */
+        :root {
+            --primary-color: #15ff00b9;
+            --secondary-color: #52ff02;
+            --background-color: #f5f7fa8e;
+            --card-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .english-word {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .arabic-translation {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .sound-icon {
+            background-color: #e8f4fd;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            transition: background-color 0.2s;
+        }
+
+        .word-card:hover .sound-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>افراد العاله</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f6f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>   افراد العاله</h1>
+    
+    <!-- زر للعودة إلى الصفحة الرئيسية -->
+    <a href="index.HTML" class="back-btn">العودة للرئيسية</a>
+<body>
+
+    <header>
+        <h1>قاموس الكلمات وا الجمل الإنجليزية الخاصه بي افراد العاله الناطق 🎧</h1>
+        <p>اضغط على أي بطاقة لسماع النطق الصحيح للكلمة باللكنة الأمريكية</p>
+    </header>
+
+    <div class="container" id="wordsContainer">
+        <!-- سيتم توليد الكلمات هنا عبر الجافا سكريبت تلقائياً -->
+    </div>
+
+    <script>
+        // مصفوفة تحتوي على أهم الكلمات وترجمتها
+        const wordsList = [
+{ en: "family", ar: "عائلة" },
+{ en: "father", ar: "أب" },
+{ en: "mother", ar: "أم" },
+{ en: "dad", ar: "بابا" },
+{ en: "mom", ar: "ماما" },
+{ en: "parents", ar: "الوالدان" },
+{ en: "son", ar: "ابن" },
+{ en: "daughter", ar: "ابنة" },
+{ en: "child", ar: "طفل" },
+{ en: "children", ar: "أطفال" },
+{ en: "brother", ar: "أخ" },
+{ en: "sister", ar: "أخت" },
+{ en: "older brother", ar: "أخ أكبر" },
+{ en: "younger brother", ar: "أخ أصغر" },
+{ en: "older sister", ar: "أخت أكبر" },
+{ en: "younger sister", ar: "أخت أصغر" },
+{ en: "grandfather", ar: "جد" },
+{ en: "grandmother", ar: "جدة" },
+{ en: "grandparents", ar: "الأجداد" },
+{ en: "grandson", ar: "حفيد" },
+{ en: "granddaughter", ar: "حفيدة" },
+{ en: "uncle", ar: "عم / خال" },
+{ en: "aunt", ar: "عمة / خالة" },
+{ en: "cousin", ar: "ابن العم أو الخال / ابنة العم أو الخال" },
+{ en: "nephew", ar: "ابن الأخ أو الأخت" },
+{ en: "niece", ar: "ابنة الأخ أو الأخت" },
+{ en: "husband", ar: "زوج" },
+{ en: "wife", ar: "زوجة" },
+{ en: "marriage", ar: "زواج" },
+{ en: "relative", ar: "قريب" },
+{ en: "relatives", ar: "الأقارب" },
+{ en: "family tree", ar: "شجرة العائلة" },
+{ en: "twins", ar: "توأم" },
+{ en: "baby", ar: "رضيع" },
+{ en: "boy", ar: "ولد" },
+{ en: "girl", ar: "بنت" },
+{ en: "man", ar: "رجل" },
+{ en: "woman", ar: "امرأة" },
+{ en: "home", ar: "المنزل" },
+{ en: "love", ar: "حب" }
+
+        ];
+
+        const container = document.getElementById('wordsContainer');
+
+        // توليد بطاقات الكلمات داخل الصفحة
+        wordsList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            // عند الضغط على الكارت يتم تشغيل دالة النطق
+            card.onclick = () => speakWord(item.en);
+
+            card.innerHTML = `
+                <div class="english-word">${item.en}</div>
+                <div class="arabic-translation">${item.ar}</div>
+                <div class="sound-icon">🔊</div>
+            `;
+            
+            container.appendChild(card);
+        });
+
+        // دالة نطق الكلمة بالإنجليزية
+        function speakWord(text) {
+            // إلغاء أي صوت يعمل حالياً لمنع التداخل
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // ضبط اللهجة الإنجليزية الأمريكية
+            utterance.rate = 0.9;     // التحكم في سرعة النطق (طبيعية)
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</body>
+</html>

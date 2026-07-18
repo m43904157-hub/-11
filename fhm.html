@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الكلمات الإنجليزية بالصوت</title>
+    <style>
+        /* تصميم الـ CSS */
+        :root {
+            --primary-color: #6200ff85;
+            --secondary-color: #1302ff;
+            --background-color: #f5f7fa8e;
+            --card-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .english-word {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .arabic-translation {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .sound-icon {
+            background-color: #e8f4fd;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            transition: background-color 0.2s;
+        }
+
+        .word-card:hover .sound-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title> الحيوانات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f6f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1> الحيوانات</h1>
+    
+    <!-- زر للعودة إلى الصفحة الرئيسية -->
+    <a href="index.HTML" class="back-btn">العودة للرئيسية</a>
+<body>
+
+    <header>
+        <h1>قاموس الكلمات وا الجمل الإنجليزية الخاصه بي الحيوانات الناطق 🎧</h1>
+        <p>اضغط على أي بطاقة لسماع النطق الصحيح للكلمة باللكنة الأمريكية</p>
+    </header>
+
+    <div class="container" id="wordsContainer">
+        <!-- سيتم توليد الكلمات هنا عبر الجافا سكريبت تلقائياً -->
+    </div>
+
+    <script>
+        // مصفوفة تحتوي على أهم الكلمات وترجمتها
+        const wordsList = [
+{ en: "animal", ar: "حيوان" },
+{ en: "cat", ar: "قطة" },
+{ en: "dog", ar: "كلب" },
+{ en: "lion", ar: "أسد" },
+{ en: "tiger", ar: "نمر" },
+{ en: "elephant", ar: "فيل" },
+{ en: "giraffe", ar: "زرافة" },
+{ en: "zebra", ar: "حمار وحشي" },
+{ en: "monkey", ar: "قرد" },
+{ en: "bear", ar: "دب" },
+{ en: "wolf", ar: "ذئب" },
+{ en: "fox", ar: "ثعلب" },
+{ en: "rabbit", ar: "أرنب" },
+{ en: "deer", ar: "غزال" },
+{ en: "horse", ar: "حصان" },
+{ en: "cow", ar: "بقرة" },
+{ en: "bull", ar: "ثور" },
+{ en: "goat", ar: "ماعز" },
+{ en: "sheep", ar: "خروف" },
+{ en: "camel", ar: "جمل" },
+{ en: "donkey", ar: "حمار" },
+{ en: "pig", ar: "خنزير" },
+{ en: "bird", ar: "طائر" },
+{ en: "eagle", ar: "نسر" },
+{ en: "owl", ar: "بومة" },
+{ en: "parrot", ar: "ببغاء" },
+{ en: "duck", ar: "بطة" },
+{ en: "chicken", ar: "دجاجة" },
+{ en: "rooster", ar: "ديك" },
+{ en: "hen", ar: "دجاجة" },
+{ en: "penguin", ar: "بطريق" },
+{ en: "fish", ar: "سمكة" },
+{ en: "shark", ar: "قرش" },
+{ en: "whale", ar: "حوت" },
+{ en: "dolphin", ar: "دلفين" },
+{ en: "octopus", ar: "أخطبوط" },
+{ en: "crab", ar: "سلطعون" },
+{ en: "turtle", ar: "سلحفاة" },
+{ en: "frog", ar: "ضفدع" },
+{ en: "snake", ar: "ثعبان" },
+{ en: "crocodile", ar: "تمساح" },
+{ en: "lizard", ar: "سحلية" },
+{ en: "mouse", ar: "فأر" },
+{ en: "rat", ar: "جرذ" },
+{ en: "bat", ar: "خفاش" },
+{ en: "bee", ar: "نحلة" },
+{ en: "butterfly", ar: "فراشة" },
+{ en: "ant", ar: "نملة" },
+{ en: "spider", ar: "عنكبوت" },
+{ en: "fly", ar: "ذبابة" }
+
+        ];
+
+        const container = document.getElementById('wordsContainer');
+
+        // توليد بطاقات الكلمات داخل الصفحة
+        wordsList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            // عند الضغط على الكارت يتم تشغيل دالة النطق
+            card.onclick = () => speakWord(item.en);
+
+            card.innerHTML = `
+                <div class="english-word">${item.en}</div>
+                <div class="arabic-translation">${item.ar}</div>
+                <div class="sound-icon">🔊</div>
+            `;
+            
+            container.appendChild(card);
+        });
+
+        // دالة نطق الكلمة بالإنجليزية
+        function speakWord(text) {
+            // إلغاء أي صوت يعمل حالياً لمنع التداخل
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // ضبط اللهجة الإنجليزية الأمريكية
+            utterance.rate = 0.9;     // التحكم في سرعة النطق (طبيعية)
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</body>
+</html>

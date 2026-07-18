@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الكلمات الإنجليزية بالصوت</title>
+    <style>
+        /* تصميم الـ CSS */
+        :root {
+            --primary-color: #ffa600;
+            --secondary-color: #2c3e50;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .english-word {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .arabic-translation {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .sound-icon {
+            background-color: #e8f4fd;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            transition: background-color 0.2s;
+        }
+
+        .word-card:hover .sound-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>جمل وا كليمات لي الطعام</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f6f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>جمل وا كليمات لي الطعام</h1>
+    
+    <!-- زر للعودة إلى الصفحة الرئيسية -->
+    <a href="index.HTML" class="back-btn">العودة للرئيسية</a>
+<body>
+
+    <header>
+        <h1>قاموس الكلمات وا الجمل الإنجليزية الخاصه بي الطعام الناطق 🎧</h1>
+        <p>اضغط على أي بطاقة لسماع النطق الصحيح للكلمة باللكنة الأمريكية</p>
+    </header>
+
+    <div class="container" id="wordsContainer">
+        <!-- سيتم توليد الكلمات هنا عبر الجافا سكريبت تلقائياً -->
+    </div>
+
+    <script>
+        // مصفوفة تحتوي على أهم الكلمات وترجمتها
+        const wordsList = [
+{ en: "Food", ar: "طعام" },
+{ en: "Restaurant", ar: "مطعم" },
+{ en: "Menu", ar: "قائمة الطعام" },
+{ en: "Chef", ar: "طباخ / شيف" },
+{ en: "Waiter", ar: "جرسون / نادل" },
+{ en: "I am hungry", ar: "أنا جائع" },
+{ en: "I am thirsty", ar: "أنا عطشان" },
+{ en: "Breakfast", ar: "الفطور" },
+{ en: "Lunch", ar: "الغداء" },
+{ en: "Dinner", ar: "العشاء" },
+{ en: "Appetizer", ar: "مقبلات" },
+{ en: "Main course", ar: "الطبق الرئيسي" },
+{ en: "Dessert", ar: "الحلوى" },
+{ en: "Drink / Beverage", ar: "مشروب" },
+{ en: "Water", ar: "ماء" },
+{ en: "Bread", ar: "خبز" },
+{ en: "Rice", ar: "أرز" },
+{ en: "Meat", ar: "لحم" },
+{ en: "Chicken", ar: "دجاج" },
+{ en: "Fish", ar: "سمك" },
+{ en: "Vegetables", ar: "خضروات" },
+{ en: "Fruits", ar: "فواكه" },
+{ en: "Salad", ar: "سلطة" },
+{ en: "Soup", ar: "شوربة / حساء" },
+{ en: "Cheese", ar: "جبنة" },
+{ en: "Egg", ar: "بيض" },
+{ en: "Milk", ar: "حليب" },
+{ en: "Salt", ar: "ملح" },
+{ en: "Pepper", ar: "فلفل" },
+{ en: "Sugar", ar: "سكر" },
+{ en: "Spicy", ar: "حار / متبل" },
+{ en: "Delicious", ar: "لذيذ" },
+{ en: "Tasty", ar: "شهي" },
+{ en: "Sweet", ar: "حلو" },
+{ en: "Sour", ar: "حامض" },
+{ en: "Bitter", ar: "مر" },
+{ en: "Salty", ar: "مالح" },
+{ en: "Fried", ar: "مقلي" },
+{ en: "Grilled", ar: "مشوي" },
+{ en: "Boiled", ar: "مسلوق" },
+{ en: "Baked", ar: "مخبوز" },
+{ en: "Fresh", ar: "طازج" },
+{ en: "Healthy food", ar: "طعام صحي" },
+{ en: "Fast food", ar: "وجبة سريعة" },
+{ en: "I want to order", ar: "أريد أن أطلب" },
+{ en: "Can I see the menu, please?", ar: "هل يمكنني رؤية قائمة الطعام من فضلك؟" },
+{ en: "Are you ready to order?", ar: "هل أنت مستعد للطلب؟" },
+{ en: "What do you recommend?", ar: "بماذا توصيني؟" },
+{ en: "I would like a table for two", ar: "أريد طاولة لشخصين" },
+{ en: "Is this table reserved?", ar: "هل هذه الطاولة محجوزة؟" },
+{ en: "Check / Bill, please", ar: "الحساب من فضلك" },
+{ en: "Keep the change", ar: "احتفظ بالباقي" },
+{ en: "Can I pay by card?", ar: "هل يمكنني الدفع بالبطاقة؟" },
+{ en: "I will pay in cash", ar: "سأدفع نقداً" },
+{ en: "Bon appetit", ar: "شهية طيبة / بالهناء والشفاء" },
+{ en: "Enjoy your meal", ar: "استمتع بوجبتك" },
+{ en: "I am full", ar: "أنا شبعان" },
+{ en: "The food is cold", ar: "الطعام بارد" },
+{ en: "The food is hot", ar: "الطعام ساخن" },
+{ en: "This is too salty", ar: "هذا مالح جداً" },
+{ en: "I am a vegetarian", ar: "أنا نباتي" },
+{ en: "I have a food allergy", ar: "لدي حساسية من الطعام" },
+{ en: "Without onions, please", ar: "بدون بصل من فضلك" },
+{ en: "More water, please", ar: "المزيد من الماء من فضلك" },
+{ en: "Kitchen", ar: "مطبخ" },
+{ en: "Cook", ar: "يطبخ" },
+{ en: "Recipe", ar: "وصفة طبخ" },
+{ en: "Ingredients", ar: "مكونات / مقادير" },
+{ en: "Plate", ar: "طبق / صحن" },
+{ en: "Bowl", ar: "زبدية / وعاء عميق" },
+{ en: "Spoon", ar: "ملعقة" },
+{ en: "Fork", ar: "شوكة" },
+{ en: "Knife", ar: "سكين" },
+{ en: "Glass", ar: "كأس / كوب زجاجي" },
+{ en: "Cup", ar: "فنجان" },
+{ en: "Napkin", ar: "مناديل مائدة" },
+{ en: "Breakfast is ready", ar: "الفطور جاهز" },
+{ en: "What's for dinner?", ar: "ماذا يوجد على العشاء؟" },
+{ en: "I love cooking", ar: "أنا أحب الطبخ" },
+{ en: "Let's eat out tonight", ar: "لنأكل في الخارج الليلة" },
+{ en: "Takeaway / To go", ar: "طعام سفري / تيك أواي" },
+{ en: "Dine in", ar: "الأكل داخل المطعم" },
+{ en: "Delivery", ar: "توصيل للمنزل" },
+{ en: "Service charge", ar: "رسوم الخدمة" },
+{ en: "Tip", ar: "بخشيش / إكرامية" },
+{ en: "Raw", ar: "نيء / غير مطبوخ" },
+{ en: "Overcooked", ar: "مطبوخ أكثر من اللازم" },
+{ en: "Undercooked", ar: "غير مطبوخ جيداً" },
+{ en: "Burnt", ar: "محروق" },
+{ en: "Oil", ar: "زيت" },
+{ en: "Butter", ar: "زبدة" },
+{ en: "Sauce", ar: "صلصة" },
+{ en: "Juice", ar: "عصير" },
+{ en: "Coffee", ar: "قهوة" },
+{ en: "Tea", ar: "شاي" },
+{ en: "Ice cream", ar: "آيس كريم" },
+{ en: "It smells good", ar: "رائحته طيبة" },
+{ en: "This tastes amazing", ar: "مذاق هذا رائع" },
+{ en: "Can I have a refill?", ar: "هل يمكنني إعادة ملء الكوب؟" },
+{ en: "Thank you for the delicious food", ar: "شكراً لك على الطعام اللذيذ" }
+
+        ];
+
+        const container = document.getElementById('wordsContainer');
+
+        // توليد بطاقات الكلمات داخل الصفحة
+        wordsList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            // عند الضغط على الكارت يتم تشغيل دالة النطق
+            card.onclick = () => speakWord(item.en);
+
+            card.innerHTML = `
+                <div class="english-word">${item.en}</div>
+                <div class="arabic-translation">${item.ar}</div>
+                <div class="sound-icon">🔊</div>
+            `;
+            
+            container.appendChild(card);
+        });
+
+        // دالة نطق الكلمة بالإنجليزية
+        function speakWord(text) {
+            // إلغاء أي صوت يعمل حالياً لمنع التداخل
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // ضبط اللهجة الإنجليزية الأمريكية
+            utterance.rate = 0.9;     // التحكم في سرعة النطق (طبيعية)
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</body>
+</html>

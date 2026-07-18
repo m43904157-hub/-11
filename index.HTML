@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الكلمات الإنجليزية بالصوت</title>
+    <style>
+        .next-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #2ecc71; /* لون الزر أخضر */
+    color: white; /* لون الكتابة */
+    text-decoration: none; /* إلغاء الخط تحت الكلام */
+    border-radius: 8px; /* انحناء أطراف الزر */
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.next-btn:hover {
+    background-color: #27ae60; /* تغيير اللون عند مرور الماوس */
+}
+
+        /* تصميم الـ CSS */
+        :root {
+            --primary-color: #12c8f5;
+            --secondary-color: #2c3e50;
+            --background-color: #f5f7fa;
+            --card-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--secondary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background-color: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .english-word {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .arabic-translation {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .sound-icon {
+            background-color: #e8f4fd;
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            transition: background-color 0.2s;
+        }
+
+        .word-card:hover .sound-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="OAD.HTML" class="next-btn">التعريف عن نفسي️➡️</a>
+<a href="GOGO.HTML" class="next-btn">جمل وا كليمات لي الطعام➡️</a>
+<a href="HG.HTML" class="next-btn"> افراد العاله➡️</a>
+<a href="fhm.html" class="next-btn"> الحيوانات➡️</a>
+<a href="المفردات .html" class="next-btn"> المفرادات➡️</a>
+
+    <header>
+        <h1>قاموس الكلمات الإنجليزية الناطق 🎧</h1>
+        <p>اضغط على أي بطاقة لسماع النطق الصحيح للكلمة باللكنة الأمريكية</p>
+    </header>
+
+    <div class="container" id="wordsContainer">
+        <!-- سيتم توليد الكلمات هنا عبر الجافا سكريبت تلقائياً -->
+    </div>
+
+    <script>
+        // مصفوفة تحتوي على أهم الكلمات وترجمتها
+        const wordsList = [
+            { en: "Hello", ar: "مرحباً" },
+                     
+                   { en: " LAVE", ar: "الحب" },
+
+            { en: "Thank you", ar: "شكرًا لك" },
+            { en: "Please", ar: "من فضلك" },
+            { en: "Welcome", ar: "أهلاً بك" },
+            { en: "Good morning", ar: "صباح الخير" },
+            { en: "Goodbye", ar: "مع السلامة" },
+            { en: "Yes", ar: "نعم" },
+            { en: "No", ar: "لا" },
+            { en: "Help", ar: "مساعدة" },
+            { en: "Excuse me", ar: "المعذرة" },
+            { en: "Sorry", ar: "آسف" },
+            { en: "Beautiful", ar: "جميل" },
+            { en: "Happy", ar: "سعيد" },
+            { en: "Family", ar: "عائلة" },
+            { en: "Friend", ar: "صديق" },
+            { en: "Success", ar: "نجاح" },
+          { en: "What's up", ar: "ماالاخبار" },
+ { en: "Hello", ar: "مرحباً" },
+{ en: "Thank you", ar: "شكرًا لك" },
+{ en: "Please", ar: "من فضلك" },
+{ en: "Welcome", ar: "أهلاً بك" },
+{ en: "Good morning", ar: "صباح الخير" },
+{ en: "Good night", ar: "تصبح على خير" },
+{ en: "Goodbye", ar: "مع السلامة" },
+{ en: "Yes", ar: "نعم" },
+{ en: "No", ar: "لا" },
+{ en: "Excuse me", ar: "المعذرة / لو سمحت" },
+{ en: "Sorry", ar: "آسف" },
+{ en: "How are you?", ar: "كيف حالك؟" },
+{ en: "I am fine", ar: "أنا بخير" },
+{ en: "What is your name?", ar: "ما اسمك؟" },
+{ en: "My name is...", ar: "اسمي هو..." },
+{ en: "Nice to meet you", ar: "سعدت بلقائك" },
+{ en: "Help", ar: "مساعدة" },
+{ en: "Can you help me?", ar: "هل يمكنك مساعدتي؟" },
+{ en: "I don't understand", ar: "أنا لا أفهم" },
+{ en: "Where is the bathroom?", ar: "أين الحمام؟" },
+{ en: "How much is this?", ar: "بكم هذا؟" },
+{ en: "I want this", ar: "أريد هذا" },
+{ en: "Success", ar: "نجاح" },
+{ en: "Beautiful", ar: "جميل" },
+{ en: "Happy", ar: "سعيد" },
+{ en: "Sad", ar: "حزين" },
+{ en: "Family", ar: "عائلة" },
+{ en: "Friend", ar: "صديق" },
+{ en: "Love", ar: "حب" },
+{ en: "Life", ar: "الحياة" },
+{ en: "Time", ar: "الوقت" },
+{ en: "Today", ar: "اليوم" },
+{ en: "Tomorrow", ar: "غداً" },
+{ en: "Yesterday", ar: "أمس" },
+{ en: "Good luck", ar: "بالتوفيق / حظ سعيد" },
+{ en: "Congratulations", ar: "مبروك / تهانينا" },
+{ en: "Do you speak English?", ar: "هل تتحدث الإنجليزية؟" },
+{ en: "A little bit", ar: "قليلاً" },
+{ en: "I don't know", ar: "لا أعلم" },
+{ en: "I forgot", ar: "لقد نسيت" },
+{ en: "No problem", ar: "لا توجد مشكلة" },
+{ en: "You are welcome", ar: "على الرحب والسعة" },
+{ en: "See you later", ar: "أراك لاحقاً" },
+{ en: "Take care", ar: "انتبه لنفسك" },
+{ en: "I am tired", ar: "أنا متعب" },
+{ en: "I am hungry", ar: "أنا جائع" },
+{ en: "I am thirsty", ar: "أنا عطشان" },
+{ en: "Water", ar: "ماء" },
+{ en: "Food", ar: "طعام" },
+{ en: "Where are you from?", ar: "من أين أنت؟" },
+{ en: "I am from...", ar: "أنا من..." },
+{ en: "How old are you?", ar: "كم عمرك؟" },
+{ en: "What do you do?", ar: "ماذا تعمل؟" },
+{ en: "I like this", ar: "يعجبني هذا" },
+{ en: "I don't like this", ar: "لا يعجبني هذا" },
+{ en: "Are you sure?", ar: "هل أنت متأكد؟" },
+{ en: "Of course", ar: "بالتأكيد" },
+{ en: "Never mind", ar: "لا يهم / انسى الأمر" },
+{ en: "What's wrong?", ar: "ما الخطب؟ / ما المشكلة؟" },
+{ en: "Calm down", ar: "اهدأ" },
+{ en: "Hurry up", ar: "أسرع" },
+{ en: "Stop", ar: "توقف" },
+{ en: "Go ahead", ar: "تفضل / استمر" },
+{ en: "Wait a minute", ar: "انتظر دقيقة" },
+{ en: "What time is it?", ar: "كم الساعة؟" },
+{ en: "It is late", ar: "الوقت متأخر" },
+{ en: "Money", ar: "مال" },
+{ en: "Work", ar: "عمل / شغل" },
+{ en: "School", ar: "مدرسة" },
+{ en: "House", ar: "منزل" },
+{ en: "Car", ar: "سيارة" },
+{ en: "Store", ar: "محل / متجر" },
+{ en: "Hospital", ar: "مستشفى" },
+{ en: "Airport", ar: "مطار" },
+{ en: "Hotel", ar: "فندق" },
+{ en: "Restaurant", ar: "مطعم" },
+{ en: "Key", ar: "مفتاح" },
+{ en: "Phone", ar: "هاتف" },
+{ en: "Book", ar: "كتاب" },
+{ en: "Open", ar: "مفتوح" },
+{ en: "Closed", ar: "مغلق" },
+{ en: "Push", ar: "ادفع" },
+{ en: "Pull", ar: "اسحب" },
+{ en: "Left", ar: "يسار" },
+{ en: "Right", ar: "يمين" },
+{ en: "Straight", ar: "على طول / مستقيم" },
+{ en: "Hot", ar: "حار" },
+{ en: "Cold", ar: "بارد" },
+{ en: "Big", ar: "كبير" },
+{ en: "Small", ar: "صغير" },
+{ en: "New", ar: "جديد" },
+{ en: "Old", ar: "قديم" },
+{ en: "Good", ar: "جيد" },
+{ en: "Bad", ar: "سيء" },
+{ en: "Easy", ar: "سهل" },
+{ en: "Difficult", ar: "صعب" },
+{ en: "Safe", ar: "آمن" },
+{ en: "Dangerous", ar: "خطير" },
+{ en: "Have a nice day", ar: "أتمنى لك يوماً سعيداً" },
+{ en: "See you tomorrow", ar: "أراك غداً" }
+
+        ];
+
+        const container = document.getElementById('wordsContainer');
+
+        // توليد بطاقات الكلمات داخل الصفحة
+        wordsList.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'word-card';
+            // عند الضغط على الكارت يتم تشغيل دالة النطق
+            card.onclick = () => speakWord(item.en);
+
+            card.innerHTML = `
+                <div class="english-word">${item.en}</div>
+                <div class="arabic-translation">${item.ar}</div>
+                <div class="sound-icon">🔊</div>
+            `;
+            
+            container.appendChild(card);
+        });
+
+        // دالة نطق الكلمة بالإنجليزية
+        function speakWord(text) {
+            // إلغاء أي صوت يعمل حالياً لمنع التداخل
+            window.speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US'; // ضبط اللهجة الإنجليزية الأمريكية
+            utterance.rate = 0.9;     // التحكم في سرعة النطق (طبيعية)
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</html>
